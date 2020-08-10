@@ -28,7 +28,7 @@ app.use(
   session({
     secret: "keyboard cat",
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
   })
 );
 
@@ -38,6 +38,7 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", require("./routes/index"));
+app.use("/auth", require("./routes/auth"));
 
 const PORT = process.env.PORT || 5000;
 
